@@ -2,7 +2,7 @@
 @import "breakpoint";
 @import "variables";
 @import "mixins";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400&subset=cyrillic');
+@import "fonts";
 
 //Susy settings
 $susy: (
@@ -17,90 +17,72 @@ nav {
 	width: 100%;
 	height: auto;
 	position: static;
-	background-color: transparentize($white, 1);
+	background-color: transparentize($black, 0.5);
 	z-index: 500;
 	top: 0;
+	padding-bottom: 1rem;
 	
 	
 	.brand {
-		position: fixed;
-		z-index: 100;
-		padding: 1rem;
+		@include span(3 first);
+		padding: 1rem 0;
 		@include breakpoint($tablet) {
-			position: absolute;
-		}
-	}
-
-	.account {
-		position: fixed;
-		z-index: 101;
-		right: 7%;
-		top: 46px;
-		@include breakpoint($tablet) {
-			right: 50px;
-			position: absolute;
-		}
-	}
-
-	.cart {
-		position: fixed;
-		z-index: 101;
-		right: 3%;
-		top: 49px;
-		@include breakpoint($tablet) {
-			right: 10px;
-			position: absolute;
-		}
-
-		a {
-			position: relative;
+			@include span(6 first)
 			
-			span.cart-counter {
-				position: absolute;
-				top: -20px;
-				right: -10px;
-				background: $pink;
-				color: #FFF;
-				-webkit-border-radius: 50%;
-				        border-radius: 50%;
-				font-size: 0.8rem;
-				text-align: center;
-				width: 20px;
-				height: 20px; 
-			}
+		}
+
+		img {
+			max-width: 100%;
 		}
 	}
 
-	.extra-nav {
-		position: fixed;
-		bottom: 40px;
-		right: 3%;
-		z-index: 100;
-		svg {
-			@include transition(0.8s);
+	.desc {
+		@include span(6);
+		text-align: center;
+		color: #FFF;
+		padding-top: 1rem;
+		font-family: 'Myriad Reg', sans-serif;
+		
+		.quote {
+			color: $orange;
+			font-family: 'Myriad It', sans-serif;
+		}
+	}
+
+	.contacts {
+		@include span(3 last);
+		text-align: right;
+		color: #FFF;
+		padding-top: 1rem;
+		font-family: 'Myriad Reg', sans-serif;
+		font-size: 1.2rem;
+		
+		p {
+			margin-bottom: 0.5rem;
 		}
 		
-		&:hover {
-			svg {
-				@include transform(rotate(180deg));
-				@include transition(0.8s);
-			}
+		i {
+			color: $orange;
 		}
 	}
+
+
 	
 	.main-nav {
 		height: auto;
-		background-color: transparentize($pink, 1);
+		background-color: transparent;
 		@include transition(0.5s);
 				
 		.container {
-			@include container(80%);
+			@include container(1200px);
 			@include breakpoint($tablet) {
 				@include container(100%)
 			}
 
 			.menu {
 				@include span(12);
+				border-top: 1px solid $white;
+				font-family: 'Myriad Reg', sans-serif;
 				@include breakpoint($tablet) {
 					@include span(4 last)
 				}
@@ -108,7 +90,7 @@ nav {
 				ul {
 					list-style: none;
 					text-align: center;
-					margin-top: 50px;
+					margin-top: 1rem;
 					margin-bottom: 0;
 					z-index: 50;
 					@include transition(0.5s);
@@ -116,7 +98,6 @@ nav {
 					li {
 						display: inline-block;
 						padding-bottom: 0;
-						font-weight: 300;
 						text-transform: uppercase;
 						margin-right: 20px;
 						
@@ -125,14 +106,14 @@ nav {
 						}
 						
 						a {
-							color: $black;
+							color: $white;
 							text-decoration: none;
 							@include breakpoint($tablet) {
 								color: #FFF;
 							}
 							
 							&:hover {
-								color: $pink;
+								color: $orange;
 								font-weight: 300;
 							}
 							
@@ -141,8 +122,8 @@ nav {
 								content: "";
 								height: 1px;
 								width: 0;
-								background-color: $pink;
-								margin-top: -1.7rem;
+								background-color: $orange;
+								margin-top: -2.25rem;
 								margin-left: auto;
 								margin-right: auto;
 								@include transition(0.5s);
@@ -159,7 +140,7 @@ nav {
 
 						.active {
 							font-weight: 500;
-							color: $pink !important;
+							color: $orange !important;
 						}
 
 						.active:after {
@@ -167,7 +148,7 @@ nav {
 							content: "";
 							height: 3px;
 							width: 100%;
-							background-color: $pink;
+							background-color: $orange;
 							margin-top: 1.25rem;
 							@include transition(0.5s);
 						}
@@ -305,7 +286,7 @@ nav {
 		    
 		    li {
 			    a {
-					color: $pink;
+					color: $orange;
 				}
 		    }
 
@@ -356,7 +337,7 @@ nav {
 	}
 
 	.nav-scroll {
-		background-color: transparentize($pink, 0.1);
+		background-color: transparentize($orange, 0.1);
 		@include transform(translateY(-30px));
 		@include transition(0.5s);
 		

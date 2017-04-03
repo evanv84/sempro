@@ -7,46 +7,25 @@ a {
 
 .btn {
 	display: inline-block;
-	padding: 12px 26px 0 76px;
-	background: transparent;
-	color: $black;
-	border: 1px solid $black;
+	padding: 0.7rem 1.3rem;
+	background: $orange;
+	color: $white;
+	border-bottom: 4px solid darken($orange, 10);
 	font-size: 1rem;
 	text-transform: uppercase;
 	text-decoration: none;
 	position: relative;
-	height: 50px;
 	overflow: hidden;
 	vertical-align: middle;
+	font-family: 'Myriad Reg', sans-serif;
 	@include transition(0.7s);
-	&:before {
-		content: '';
-		position: absolute;
-		width: 50px;
-		height: 49px;
-		top: 0;
-		left: 0;
-		border-right: 1px solid $black;
-		background: url(../img/cart-icon.svg) center center no-repeat;
-		background-position: 50% 50%;
-		@include background-size(50%);
-		@include transition(0.7s);
-		@include breakpoint($tablet) {
-			display: none;
-		}
-	}
+
 	&:hover {
-			background: $black;
+			background: darken($orange, 10);
 			color: #FFF;
-			border: 1px solid $white;
+			border-bottom: 4px solid $orange;
 			
 			@include transition(0.5s);
-			&:before {
-				background: url(../img/arrow.svg) center center no-repeat;
-				background-position: 130% 50%;
-				@include background-size(160%);
-				border-right: 1px solid #fff;
-			}
 	}
 	@include breakpoint($tablet) {
 			width: 100%;
@@ -65,40 +44,4 @@ a {
 	}
 }
 
-.btn-pink {
-	border: 1px solid $pink;
-	padding: 12px 80px;
-	color: $pink;
-	
-	&:hover {
-		color: #FFF;
-		background: $pink;
-		border: 1px solid $pink;
-	}
-	
-	&:before {
-		display: none;
-	}
-}
 
-.btn-about {
-	&:before {
-		background: url(../img/about-icon.svg) center center no-repeat;
-		background-position: 50% 50%;
-		@include background-size(70%);
-		@include breakpoint($tablet) {
-			display: none;
-		}
-	}
-}
-
-.btn-contact {
-	&:before {
-		background: url(../img/contact-us-icon.svg) center center no-repeat;
-		background-position: 50% 50%;
-		@include background-size(70%);
-		@include breakpoint($tablet) {
-			display: none;
-		}
-	}
-}

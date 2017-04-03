@@ -68,14 +68,14 @@ $susy: (
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     background: transparentize($black, 0.7); 
     -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0.5);
      @include transition(0.5s); 
     
     &:hover {
-    	background: $black;
+    	background: $orange;
     	@include transition(0.5s);
     }
 }
@@ -93,7 +93,7 @@ body {
 
 h1, h2, h3, h4 {
 	font-weight: 400;
-	text-transform: uppercase;
+	text-transform: none;
 }
 
 
@@ -119,8 +119,15 @@ section {
 	position: relative;
 }
 
+h1 {
+	font-size: 2rem;
+	span {
+		color: $orange;
+	}
+}
+
 .container {
-	@include container(80%);
+	@include container(1200px);
 	@include breakpoint($tablet) {
 		@include container(100%);
 		padding-left: 1rem;
@@ -129,1039 +136,320 @@ section {
 }
 
 header#top {
-	padding-top: 80px;
-	@include breakpoint($tablet) {
-		padding-top: 150px;
+	height: 700px;
+	background: url(../img/header-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	color: #FFF;
+	border-bottom: 10px solid $orange;
+	
+	.offer {
+		padding-top: 4rem;
+		
+		.container {
+			h1 {
+				font-size: 2.5rem;
+				text-align: center;
+				text-transform: none;
+			}
+
+			.icons {
+				clear: both;
+				margin-top: 5rem;
+				
+				.icon-col {
+					@include span(3 first);
+					
+					.img {
+						display: flex;
+						margin: 0 auto;
+						width: 100px;
+						height: 100px;
+						background: $orange;
+						-webkit-align-items: center;
+						        align-items: center;
+						-webkit-justify-content: center;
+						        justify-content: center;
+						
+						i {
+							font-size: 3rem;
+						}
+					}
+
+					.text {
+						padding: 2rem 2rem 2rem 3rem;
+					}
+				}
+			}
+		}
+
 	}
-	.container {
-		.text {
-			position: absolute;
-			bottom: 25px;
-			left: 25px;
-			color: #FFF;
-			
-			h3 {
-				font-size: 2rem;
-				margin-bottom: 0.5rem;
-				line-height: 1;
-			}
+}
 
-			p {
-				margin-bottom: 1rem;
-			}
-		}
-		.col-1 {
-			@include span(7 first);
-			@include breakpoint($tablet) {
-				@include span(12);
-			}
-			
-			.product-1 {
-				background: url(../img/header-product-1.jpg) center center no-repeat;
-				height: 80vh;
-				opacity: 0;
-				@include transform(translateX(30px));
-				@include background-size(100%);
-				@include transition(0.8s);
-				position: relative;
-				@include breakpoint($tablet) {
-					@include background-size(cover);
-					margin-bottom: 5vh;
-				}
-				
-				&:hover {
-					@include background-size(110%);
-					@include transition(0.8s);
-					@include breakpoint($tablet) {
-						@include background-size(cover);
-					}
-				}
-			}
+.fixed-menu {
+	position: fixed;
+	left: 1%;
+	top: 1rem;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	z-index: 500;
+	@include transition(0.7s);
+	
+	a {
+		text-decoration: none;
+	}
+	
+	img {
+		display: block;
+		margin: auto;
+		max-width: 70%;
+		@include transition(0.7s);
+	}
+
+	p {
+		font-size: 0.8rem;
+		color: $orange;
+		margin-top: 0.3rem;
+		@include transition(0.7s);
+	}
+
+	&:hover {
+		img {
+			@include transform(rotate(360deg));
+			@include transition(0.7s);
 		}
 
-		.col-2 {
-			@include span(5 last);
-			padding-left: 5vh;
-			@include breakpoint($tablet) {
-				@include span(12);
-				padding-left: 0;
-			}
-			.product-2 {
-				background: url(../img/header-product-2.jpg) center center no-repeat;
-				height: 37.5vh;
-				margin-bottom: 5vh;
-				opacity: 0;
-				@include transform(translateY(30px));
-				@include background-size(100%);
-				@include transition(0.8s);
-				position: relative;
-				@include breakpoint($tablet) {
-					@include background-size(cover);
-				}
-				
-				&:hover {
-					@include background-size(110%);
-					@include transition(0.8s);
-					@include breakpoint($tablet) {
-						@include background-size(cover);
-					}
-				}
-			}
-
-			.product-3 {
-				background: url(../img/header-product-3.jpg) center center no-repeat;
-				height: 37.5vh;
-				opacity: 0;
-				@include transform(translateY(-30px));
-				@include background-size(100%);
-				@include transition(0.8s);
-				position: relative;
-				@include breakpoint($tablet) {
-					@include background-size(cover);
-				}
-				
-				&:hover {
-					@include background-size(110%);
-					@include transition(0.8s);
-					@include breakpoint($tablet) {
-						@include background-size(cover);
-					}
-				}
-			}
+		p {
+			letter-spacing: 0.1rem;
+			@include transition(0.7s);
 		}
 	}
 }
 
-.single-post-header {
-	opacity: 0;
-	@include transform(translateY(50px));
+.fixed-contacts {
+	position: fixed;
+	right: 1%;
+	top: 1rem;
+	width: 50px;
+	height: 50px;
+	z-index: 500;
 	
-	.container {
-		position: relative;
-		height: 400px;
-		overflow: hidden;
-		
-		.bcg {
-			position: absolute;
-			height: 400px;
-			background: url(../img/header-secondary.jpg) center center no-repeat;
-			@include background-size(cover);
-			width: 100%;
-			
-			@include breakpoint($tablet) {
-				background-position: right center;
-			}
-		}
-		
-		.single-title {
-			position: relative;
-			height: 400px;
-			//background: url(../img/header-secondary.jpg) center center no-repeat;
-			//@include background-size(cover);
-			
-			h1 {
-				position: absolute;
-				bottom: 50px;
-				left: 0;
-				display: inline-block;
-				padding:1rem 30px;
-				background: #FFF;
-				text-transform: uppercase;
-				font-size: 2rem;
-			}
-		}
+	a {
+		text-decoration: none;
+	}
+	
+	img {
+		display: block;
+		margin: auto;
+		max-width: 70%;
+		@include transition(0.7s);
 	}
 
-	.container-top--no-image {
-		height: auto;
-		padding: 2rem;
-		text-align: center;
-		border-bottom: 1px solid $black;
-		h1 {
+	p {
+		font-size: 0.7rem;
+		color: $orange;
+		margin-top: 0.3rem;
+		@include transition(0.7s);
+	}
+
+	&:hover {
+		img {
+			@include transform(rotate(360deg));
+			@include transition(0.7s);
+		}
+
+		p {
+			letter-spacing: 0.05rem;
+			@include transition(0.7s);
+		}
+	}
+}
+
+.up-arrow {
+	position: fixed;
+	right: 1%;
+	bottom: 1rem;
+	z-index: 500;
+	a {
+		display: flex;
+		width: 40px;
+		height: 40px;
+		background: $orange;
+		color: #FFF;
+		text-decoration: none;
+		padding-top: 0.1rem;
+		@include transition(0.7s);
+		-webkit-justify-content: center;
+		        justify-content: center;
+		-webkit-border-radius: 50%;
+		        border-radius: 50%;
+		
+		i {
 			font-size: 2rem;
 		}
 	}
-}
 
-#single-content {
-	padding: 80px 0 40px;
-	
-	.container {
-		@include container(60%);
-		@include breakpoint($tablet) {
-			@include container(100%);
-			padding-left: 1rem;
-			padding-right: 1rem;
-		}
-
-		p {
-			margin-bottom: 1rem;
-		}
-	}
-}
-
-#shop-content {
-	padding: 80px 0 40px;
-	opacity: 0;
-	@include transform(translateY(30px));
-	@include breakpoint($phone) {
-		padding-top: 120px;
-	}
-	
-	.container {
-
-		p {
-			margin-bottom: 1rem;
-		}
-	}
-}
-
-.sect-title {
-	position: relative;
-	left: 0;
-	top: 100px;
-	width: 10%;
-	height: 150px;
-	span {
-		&:nth-child(1) {
-			position: absolute;
-			width: 80%;
-			height: 1px;
-			background: $pink;
-		}
-
-		&:nth-child(2) {
-			position: absolute;
-			width: 40%;
-			height: 1px;
-			top: 19px;
-			right: 15%;
-			background: $pink;
-			@include transform(rotate(-45deg));
-		}
-	}
-	
-	p {
-		text-transform: uppercase;
-		font-size: 1.2rem;
-		padding-top: 3rem;
-		padding-left: 3rem;
-		@include transform(rotate(90deg));
-	}
-	@include breakpoint($tablet) {
-		display: none;
-	}
-}
-
-#arrivals {
-	padding: 40px 0;
-	
-	.container {
-		text-align: center;
-		.product {
-			padding-bottom: 1rem;
-			@include transition(0.5s);
-			@include breakpoint($tablet) {
-				@include span(12);
-			}
-			
-			a {
-				text-decoration: none;
-				
-				img {
-					max-width: 100%;
-				}
-
-				p {
-					text-transform: uppercase;
-					color: $black;
-					text-decoration: none;
-				}
-			}
-		}
-
-		.btn-shop {
-			clear: both;
-			margin-top: 4rem;
+	&:hover {
+		a {
+			background: darken($orange, 10);
+			@include transition(0.7s);
 		}
 	}
 }
 
 #categories {
-	padding: 0 0 40px;
+	padding: 80px 0;
+	background: url(../img/store-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	color: #FFF;
+	text-align: center;
 	
 	.container {
-		background: lighten($black, 95);
+		@include container(1000px);
 		
-		.col-1 {
-			@include span(6 first);
-			padding-right: 5vh;
-			@include breakpoint($tablet) {
-				@include span(12);
-				padding-right: 0;
-			}
-			
-			.category-eyes {
-				height: 200px;
-				background: url(../img/cat-eyes.jpg) center center no-repeat;
-				@include background-size(cover);
-				margin-bottom: 5vh;
-			}
-
-			.category-lips {
-				height: 400px;
-				background: url(../img/cat-lips.jpg) center center no-repeat;
-				@include background-size(cover);
-				@include breakpoint($tablet) {
-					margin-bottom: 5vh;
-				}
-			}
+		h1 {
+			margin-bottom: 2rem;
 		}
-
-		.col-2 {
-			@include span(6 last);
-			@include breakpoint($tablet) {
-				@include span(12);
-			}
+		.cat-item {
+			@include span(3 first);
+			margin-bottom: 3rem;
 			
-			.category-eyebrows {
-				height: 400px;
-				background: url(../img/cat-eyebrows.jpg) center center no-repeat;
-				@include background-size(cover);
-				margin-bottom: 5vh;
-			}
-
-			.category-accessories {
-				height: 200px;
-				background: url(../img/cat-accessories.jpg) center center no-repeat;
-				@include background-size(cover);
-			}
-		}
-
-		a {
-			color: #FFF;
-			text-decoration: none;
-		}
-
-		.category-cell {
-			position: relative;
-			width: 100%;
-			background: $gray;
-			overflow: hidden;
-			
-			&:hover {
-				.category-hover {
-					opacity: 1;
-					@include transition(0.8s);
+			a {
+				text-decoration: none;
+				.block {
+					margin: auto;
+					width: 200px;
+					height: 200px;
+					border: 2px solid $orange;
+					text-align: center;
+					color: #FFF;
+					padding: 1rem;
+					@include transition(0.7s);
+					display: flex;
+					-webkit-align-items: center;
+					        align-items: center;
+					-webkit-justify-content: center;
+					        justify-content: center;
 					
-					&:after {
-						background-position: 100% 70%;
-						@include transition(0.8s);
+					&:hover {
+						@include background-size(110%);
+						@include transition(0.7s);
 					}
 				}
-			}
-			
-			.category-hover {
-				background: transparentize($black, 0.4);
-				width: 100%;
-				height: 100%;
-				display: block;
-				position: relative;
-				opacity: 0;
-				@include transition(0.8s);
-				
-				&:after {
-					content: "";
-					position: absolute;
-					display: block;
-					width: 100%;
-					height: 50px;
-					bottom: 7px;
-					right: 50px;
-					background: url(../img/arrow.svg) center center no-repeat;
-					background-position: 50% 70%;
-					@include background-size(60%);
-					@include transition(0.8s);
-					
+
+				.block-1 {
+					background: url(../img/categories/cat-1.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-2 {
+					background: url(../img/categories/cat-2.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-3 {
+					background: url(../img/categories/cat-3.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-4 {
+					background: url(../img/categories/cat-4.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-5 {
+					background: url(../img/categories/cat-5.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-6 {
+					background: url(../img/categories/cat-6.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-7 {
+					background: url(../img/categories/cat-7.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-8 {
+					background: url(../img/categories/cat-8.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-9 {
+					background: url(../img/categories/cat-9.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-10 {
+					background: url(../img/categories/cat-10.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-11 {
+					background: url(../img/categories/cat-11.jpg) center center no-repeat;
+					@include background-size(100%);
+				}
+				.block-12 {
+					background: url(../img/categories/cat-12.jpg) center center no-repeat;
+					@include background-size(100%);
 				}
 			}
-			
-			p {
-				position: absolute;
-				text-transform: uppercase;
-				bottom: 25px;
-				left: 25px;
-				font-size: 1.2rem;
-			}
+		}
+
+		.btn {
+			clear: both;
+		}
+	}
+}
+
+#sp-deals {
+	padding: 100px 0;
+	background: url(../img/sp-deals-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	text-align: center;
+	
+	.container {
+		h1 {
+			margin-bottom: 2rem;
+		}
+
+		p {
+			margin-bottom: 2rem;
+			font-size: 1.2rem;
 		}
 	}
 }
 
 #about {
-	padding-bottom: 40px;
+	padding: 80px 0;
+	background: url(../img/about-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	text-align: center;
+	color: darken($white, 10);
 	
 	.container {
 		
-		.col-1 {
-			@include span(6 first);
-			padding-right: 10vh;
-			@include breakpoint($tablet) {
-				@include span(12);
-				padding-right: 0;
-			}
+		h1 {
+			margin-bottom: 4rem;
+		}
+
+		.number-col {
+			@include span(4 first);
+			margin-bottom: 4rem;
+			padding: 0 4rem;
 			
-			p {
+			h4 {
+				font-size: 4rem;
 				margin-bottom: 1rem;
-				text-align: justify;
-			}
-		}
-
-		.col-2 {
-			@include span(6 last);
-			@include breakpoint($tablet) {
-				@include span(12);
-			}
-			
-			img {
-				max-width: 100%;
-			}
-		}
-	}
-}
-
-//FOOTER AREA ////////////////////////////////////////
-footer {
-	padding-top: 40px;
-	padding-bottom: 30px;
-	text-align: center;
-	
-	.container {
-		border-top: 1px solid $black;
-		padding-top: 30px;
-		
-		.footer-nav {
-			margin-bottom: 30px;
-			ul {
-				list-style: none;
-				
-				li {
-					display: inline-block;
-					padding: 0 1rem;
-					@include breakpoint($tablet) {
-						padding: 1rem;
-					}
-					
-					a {
-						text-decoration: none;
-						text-transform: uppercase;
-						color: $black;
-						
-						&:hover {
-							color: darken($pink, 30);
-						}
-					}
-				}
-			}
-		}
-
-		.socials {
-			margin-bottom: 30px;
-			ul {
-				list-style: none;
-				
-				li {
-					display: inline-block;
-					padding: 0 0.5rem;
-					
-					a {
-						text-decoration: none;
-						font-size: 1.8rem;
-						color: $black;
-						
-						&:hover {
-							color: darken($pink, 40);
-						}
-					}
-				}
-			}
-		}
-
-		.copytext {
-			margin-top: 30px;
-			margin-bottom: 30px;
-			font-size: 0.7rem;
-			padding: 0 5rem;
-			color: lighten($black, 30);
-			@include breakpoint($tablet) {
-				padding: 0;
-			}
-		}
-	}
-}
-
-.shop-nav-menu {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	background: url(../img/modal-bg.jpg) center center no-repeat;
-	@include background-size(cover);
-	z-index: 100;
-	//opacity: 0;
-	@include transform(translateY(-100%));
-	@include transition(0.8s);
-	@include breakpoint($tablet) {
-		@include transform(translateY(-200%));
-		overflow-y: scroll;
-		padding-bottom: 2rem;
-	}
-		
-	.close-btn {
-		position: absolute;
-		width: 60px;
-		height: 60px;
-		left: 3%;
-		top: 5vh;
-		z-index: 101;
-		span:nth-child(1) {
-			position: absolute;
-			width: 40px;
-			height: 1px;
-			background: $black;
-			top: 10px;
-			left: 0;
-			@include transform(rotate(45deg));
-			@include transition(0.8s);
-		}
-		span:nth-child(2) {
-			position: absolute;
-			width: 40px;
-			height: 1px;
-			background: $black;
-			top: 10px;
-			left: 0;
-			@include transform(rotate(-45deg));
-			@include transition(0.8s);
-		}
-
-		&:hover {
-			span:nth-child(1) {
-				@include transform(rotate(180deg));
-				@include transition(0.8s);
-			}
-			span:nth-child(2) {
-				@include transform(rotate(180deg));
-				@include transition(0.8s);
-			}
-
-		}
-	}
-	
-	.container {
-		padding-top: 5vh;
-		.category-col {
-			@include span(6 first);
-			border-left: 1px solid $black;
-			padding-left: 2rem;
-			@include breakpoint($tablet) {
-				@include span(12);
-				border-left: none;
-			}
-			ul {
-				list-style: none;
-				
-				li {
-					@include breakpoint($tablet) {
-						display: inline-block;
-						padding: 0.2rem;
-					}
-					a {
-						color: $black;
-						text-decoration: none;
-					}
-				}
-			}
-
-			ul.category-main {
-				li {
-					text-transform: uppercase;
-					font-weight: 400;
-					margin-bottom: 0.7rem;
-					@include breakpoint($tablet) {
-						margin-bottom: 0;
-					}
-					
-					ul.sub-menu {
-						margin-top: 0.3rem;
-						padding-left: 1rem;
-						@include breakpoint($tablet) {
-							padding-left: 0;
-						}
-						li {
-							font-weight: 300;
-							font-size: 0.9rem;
-							margin-bottom: 0.5rem;
-							
-							ul.sub-menu {
-								padding-top: 0.2rem;
-								margin-top: 0;
-								li {
-									text-transform: none;
-									margin-bottom: 0.3rem;
-									@include breakpoint($tablet) {
-										margin-bottom: 0;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-.shop-nav-menu.is-open {
-	//opacity: 1;
-	@include transform(translateY(0));
-	@include transition(0.8s);
-}
-
-.extra-nav-menu {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	background: url(../img/modal-bg.jpg) center center no-repeat;
-	@include background-size(cover);
-	z-index: 100;
-	@include transform(translateX(100%));
-	@include transition(0.8s);
-	
-	.close-btn {
-		position: absolute;
-		width: 60px;
-		height: 60px;
-		left: 3%;
-		top: 5vh;
-		z-index: 101;
-		span:nth-child(1) {
-			position: absolute;
-			width: 40px;
-			height: 1px;
-			background: $black;
-			top: 10px;
-			left: 0;
-			@include transform(rotate(45deg));
-			@include transition(0.8s);
-		}
-		span:nth-child(2) {
-			position: absolute;
-			width: 40px;
-			height: 1px;
-			background: $black;
-			top: 10px;
-			left: 0;
-			@include transform(rotate(-45deg));
-			@include transition(0.8s);
-		}
-
-		&:hover {
-			span:nth-child(1) {
-				@include transform(rotate(180deg));
-				@include transition(0.8s);
-			}
-			span:nth-child(2) {
-				@include transform(rotate(180deg));
-				@include transition(0.8s);
-			}
-
-		}
-	}
-	
-	.container {
-		height: 100vh;
-		display: flex;
-		-webkit-align-items: center;
-		        align-items: center;
-		-webkit-justify-content: center;
-		        justify-content: center;
-		-webkit-flex-direction: column;
-		    -ms-flex-direction: column;
-		        flex-direction: column;
-	}
-	ul.extra-menu {
-		list-style: none;
-		text-align: center;
-		
-		li {
-			padding: 0.5rem 0;
-			a {
-				text-decoration: none;
-				font-size: 1.2rem;
-				text-transform: uppercase;
-				color: $black;
-				@include transition(0.8s);
-				
-				&:hover {
-					color: $pink;
-					@include transition(0.8s);
-				}
-			}
-		}
-	}
-	
-}
-
-.extra-nav-menu.is-open {
-	@include transform(translateX(0%));
-	@include transition(0.8s);
-}
-
-//WOOCOMERCE STYLING
-.woocommerce {
-	
-	.page-title, .woocommerce-result-count, .woocommerce-ordering {
-		display: none;
-	}
-
-	ul.products li.product, .woocommerce-page ul.products li.product {
-	    float: left;
-	    margin: 0 2.95% 2em 0;
-	    padding: 1rem;
-	    position: relative;
-	    width: 22.05%;
-	    border: 1px solid #eee;
-	    text-align: center;
-	    @include transition(0.5s);
-	    @include breakpoint($tablet) {
-	    	@include span(12);
-	    }
-	    
-	    &:hover {
-	    	border: 1px solid $black;
-	    	@include transition(0.5s);
-	    }
-
-	    h3 {
-	    	color: $black;
-	    	font-size: 0.9rem;
-	    	height: 50px;
-	    	overflow: hidden;
-	    	&:hover {
-	    		color: $pink;
-	    	}
-	    }
-
-	    .button {
-	    	display: none;
-	    }
-
-	    .price {
-		    color: $white;
-		    display: block;
-		    font-weight: 300;
-		    margin-top: 0.5rem;
-		    margin-bottom: 0;
-		    font-size: 1.2rem;
-		    padding: 0.5rem;
-		    background: $black;
-		} 
-	}
-
-	span.onsale {
-	    min-height: 3.236em;
-	    min-width: 3.236em;
-	    padding: 40px .202em 0.202em;
-	    font-weight: 400;
-	    position: absolute;
-	    text-align: center;
-	    line-height: 1;
-	    top: -.5em;
-	    left: -.5em;
-	    margin: 0;
-	    border-radius: 100%;
-	    background-color: $pink;
-	    color: #fff;
-	    font-size: .857rem;
-	    height: 100px;
-	    width: 100px;
-	    -webkit-font-smoothing: antialiased;
-	}
-
-	div.product {
-		
-		.product_title {
-		    clear: none;
-		    margin-top: 0;
-		    padding: 0;
-		    font-size: 1.5rem;
-		    margin-bottom: 1rem;
-		}
-
-		p.price, span.price {
-		    color: $black;
-		    font-size: 1.25rem;
-		    border-bottom: 1px solid #000;
-    		padding-bottom: 0.5rem;
-		}
-
-	}
-
-	.posted_in a {
-		color: $pink;
-	}
-
-	.woocommerce-MyAccount-navigation-link--downloads {
-		display: none;
-	}
-
-	#content table.cart td.actions .input-text, table.cart td.actions .input-text, #content table.cart td.actions .input-text, .woocommerce-page table.cart td.actions .input-text {
-	    width: 80px;
-	    padding: 10px 0;
-	}
-
-	form .form-row input.input-text, form .form-row textarea {
-	    box-sizing: border-box;
-	    width: 100%;
-	    margin: 0;
-	    outline: 0;
-	    line-height: 1;
-	    padding: 12px 5px;
-	}
-		
-
-	.quantity {
-		.qty {
-		    width: 3.631em;
-		    text-align: center;
-		    padding: 12px 0;
-		} 
-	}
-
-	#respond input#submit.alt, a.button.alt, button.button.alt, input.button.alt {
-	    background-color: $black;
-	    padding: 12px 50px;
-	    color: #fff;
-	    text-transform: uppercase;
-	    font-weight: 300;
-	    margin-left: 1rem;
-	    border: 1px solid $black;
-	    -webkit-border-radius: 0;
-	            border-radius: 0;
-	    -webkit-font-smoothing: antialiased;
-	    @include breakpoint($tablet) {
-	    	margin-left: 0;
-	    }
-	    
-	    &:hover {
-	    	background: transparent;
-	    	color: $black;
-	    }
-	}
-
-	#wl-wrapper > a{
-		color: $pink;
-		
-		&:hover {
-			color: $black;
-		}
-	}
-
-	#wl-wrapper .wl-tabs > li > a {
-	    display: block;
-	    padding: 8px 12px;
-	    margin: 0 3px 0 0;
-	    line-height: 20px;
-	    border: 1px solid transparent;
-	    -webkit-border-radius: 0;
-	            border-radius: 0;
-	    text-decoration: none;
-	}
-
-	.wl-actions-table {
-		display: none;
-	} 
-
-	#wl-wrapper .wl-already-in {
-		ul {
-			padding-left: 0;
-			list-style: none;
-			
-			li {
-
-				a {
-					color: $pink;
-				}
-				
-			}
-		}
-	}
-
-	#wl-wrapper.wl-button-wrap {
-	    position: relative;
-	    width: 100%;
-	    padding: 0;
-		clear: none;
-	}
-
-	#wl-wrapper .wl-add-but {
-	    float: left;
-	    margin-left: 1rem;
-	    padding: 12px 16px;
-	    background: transparent;
-	    color: $black;
-	    @include breakpoint($tablet) {
-	    	margin-left: 0;
-	    }
-	    
-	    &:hover {
-	    	background: $pink;
-	    	border: 1px solid $pink;
-	    	color: #FFF;
-	    }
-	}
-
-	.wl-list-pop {
-	    padding: 15px;
-	    background: #f5f5f5;
-	    -webkit-border-radius: 0;
-	            border-radius: 0;
-	    -webkit-box-shadow: 0px 0px 20px 0px rgba(000, 000, 000, .2);
-	    box-shadow: 0px 0px 20px 0px rgba(000, 000, 000, .2);
-	    width: auto;
-	    max-width: 250px;
-	    height: auto;
-	    border: 1px solid #ccc;
-	    z-index: 10002;
-	    position: absolute;
-	}
-
-	#respond input#submit, a.button, button.button, input.button {
-	    font-size: 100%;
-	    margin: 0;
-	    line-height: 1;
-	    cursor: pointer;
-	    position: relative;
-	    text-decoration: none;
-	    overflow: visible;
-	    padding: .618em 1em;
-	    font-weight: 700;
-	    border-radius: 0;
-	    left: auto;
-	    color: $white;
-	    background-color: $black;
-	    border: 1px solid $black;
-	    white-space: nowrap;
-	    display: inline-block;
-	    background-image: none;
-	    box-shadow: none;
-	    -webkit-box-shadow: none;
-	    text-shadow: none;
-	    
-	    &:hover {
-	    	background: transparent;
-	    	color: $black;
-	    }
-	}
-
-	table.shop_table {
-	    border: 1px solid rgba(0,0,0,.2);
-	    margin: 0 -1px 24px 0;
-	    text-align: left;
-	    width: 100%;
-	    border-collapse: separate;
-	    border-radius: 0;
-	}
-
-
-	.woocommerce-MyAccount-navigation {
-		padding-left: 0;
-		list-style: none;
-		width: 100%;
-		text-align: center;
-		margin-bottom: 2rem;
-		
-		ul {
-			list-style: none;
-			
-			li {
+				position: relative;
 				display: inline-block;
-				padding: 0.5rem;
-				a {
-					color: $black;
+				z-index: 1;
+				font-family: 'Myriad Bold', sans-serif;
+				
+				&:before {
+					content: "";
+					position: absolute;
+					left: -10px;
+					width: 40px;
+					height: 40px;
+					display: block;
+					border: 3px solid $orange;
+					z-index: -1;
 				}
 			}
 		}
 	}
-
-	.woocommerce-error, .woocommerce-info, .woocommerce-message {
-	    padding: 1em 2em 1em 3.5em!important;
-	    margin: 1rem 0 2em!important;
-	    position: relative;
-	    background-color: #fff;
-	    color: #515151;
-	    border-top: 1px solid $black;
-	    list-style: none!important;
-	    width: auto;
-	    word-wrap: break-word;
-	    text-align: center;
-	    
-	    
-	    &:before {
-	    	display: none;
-	    }
-	}
-
-	.checkout-button {
-		margin-left: 0 !important;
-	}
-
-	.related.products {
-		clear: both;
-	}
-
-
-
 }
 
-.wpcf7-form {
-	text-align: center;
-	
-	label {
-		margin-bottom: 1rem;
-	}
-	
-	input {
-		height: 50px;
-		padding-left: 0.5rem;
-		max-width: 100%;
-	}
-
-	.btn {
-		padding: 12px 50px;
-		cursor: pointer;
-	}
-
-	.wpcf7-select {
-	    height: 50px;
-	    width: 320px;
-	    padding-left: 0.5rem;
-	    max-width: 100%;
-	}
-}
-
-div.wpcf7 .ajax-loader {
-    visibility: hidden;
-    display: inline-block;
-    background-image: url(../../images/ajax-loader.gif);
-    width: 16px;
-    height: 16px;
-    border: none;
-    padding: 0;
-    margin: 0 0 0 4px;
-    vertical-align: middle;
-    position: absolute;
-}
