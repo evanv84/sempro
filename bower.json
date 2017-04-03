@@ -1,0 +1,17 @@
+{
+  "name": "sempro.ru",
+  "description": "",
+  "main": "",
+  "authors": [
+    "i.i."
+  ],
+  "license": "MIT",
+  "homepage": "krem.design",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
