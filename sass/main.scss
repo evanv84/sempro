@@ -139,8 +139,13 @@ header#top {
 	height: 700px;
 	background: url(../img/header-bg.jpg) center center no-repeat;
 	@include background-size(cover);
+	background-attachment: fixed;
 	color: #FFF;
 	border-bottom: 10px solid $orange;
+	@include breakpoint($tablet) {
+		height: auto;
+		padding-bottom: 40px;
+	}
 	
 	.offer {
 		padding-top: 4rem;
@@ -158,6 +163,9 @@ header#top {
 				
 				.icon-col {
 					@include span(3 first);
+					@include breakpoint($tablet) {
+						@include span(6 first);
+					}
 					
 					.img {
 						display: flex;
@@ -177,6 +185,9 @@ header#top {
 
 					.text {
 						padding: 2rem 2rem 2rem 3rem;
+						@include breakpoint($tablet) {
+							padding: 2rem  1rem;
+						}
 					}
 				}
 			}
@@ -185,15 +196,61 @@ header#top {
 	}
 }
 
+header#top.single-header {
+	height: 300px;
+	background: url(../img/single-header-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	border-bottom: 5px solid $orange;
+	@include breakpoint($tablet) {
+		height: auto;
+		padding-bottom: 2rem;
+	}
+	
+	.offer {
+		padding-top: 3rem;
+		@include breakpoint($tablet) {
+			padding-top: 1rem;
+			
+			h1 {
+				font-size: 2rem;
+			}
+		}
+	}
+}
+
+header#top.single-header.shop-header {
+	height: 135px;
+	border-bottom: none;
+	
+	.offer {
+		padding-top: 0;
+	}
+}
+
+#single-content {
+	padding: 80px 0;
+	background: darken($white, 10);
+	
+	.container {
+		p {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
 .fixed-menu {
 	position: fixed;
-	left: 1%;
+	left: -10%;
 	top: 1rem;
 	width: 50px;
 	height: 50px;
 	text-align: center;
 	z-index: 500;
+	opacity: 0;
 	@include transition(0.7s);
+	@include breakpoint($tablet) {
+		display: none;
+	}
 	
 	a {
 		text-decoration: none;
@@ -228,11 +285,16 @@ header#top {
 
 .fixed-contacts {
 	position: fixed;
-	right: 1%;
+	right: 10%;
 	top: 1rem;
 	width: 50px;
 	height: 50px;
 	z-index: 500;
+	opacity: 0;
+	@include transition(0.7s);
+	@include breakpoint($tablet) {
+		display: none;
+	}
 	
 	a {
 		text-decoration: none;
@@ -268,8 +330,14 @@ header#top {
 .up-arrow {
 	position: fixed;
 	right: 1%;
-	bottom: 1rem;
+	bottom: -4rem;
+	opacity: 0;
 	z-index: 500;
+	@include transition(0.7s);
+	@include breakpoint($tablet) {
+		display: none;
+	}
+
 	a {
 		display: flex;
 		width: 40px;
@@ -313,9 +381,16 @@ header#top {
 		.cat-item {
 			@include span(3 first);
 			margin-bottom: 3rem;
+			@include breakpoint($tablet) {
+				@include span(6 first);
+			}
 			
 			a {
 				text-decoration: none;
+				
+				&:hover {
+					color: $orange;
+				}
 				.block {
 					margin: auto;
 					width: 200px;
@@ -330,10 +405,15 @@ header#top {
 					        align-items: center;
 					-webkit-justify-content: center;
 					        justify-content: center;
+					@include breakpoint($tablet) {
+						width: 80%;
+						height: 100px;
+					}
 					
 					&:hover {
 						@include background-size(110%);
 						@include transition(0.7s);
+						color: $orange;
 					}
 				}
 
@@ -416,6 +496,7 @@ header#top {
 	padding: 80px 0;
 	background: url(../img/about-bg.jpg) center center no-repeat;
 	@include background-size(cover);
+	background-attachment: fixed;
 	text-align: center;
 	color: darken($white, 10);
 	
@@ -429,6 +510,10 @@ header#top {
 			@include span(4 first);
 			margin-bottom: 4rem;
 			padding: 0 4rem;
+			@include breakpoint($tablet) {
+				@include span(6 first);
+				padding: 0 1rem;
+			}
 			
 			h4 {
 				font-size: 4rem;
@@ -437,6 +522,9 @@ header#top {
 				display: inline-block;
 				z-index: 1;
 				font-family: 'Myriad Bold', sans-serif;
+				@include breakpoint($tablet) {
+					font-size: 3rem;
+				}
 				
 				&:before {
 					content: "";
@@ -452,4 +540,109 @@ header#top {
 		}
 	}
 }
+
+#faq {
+	padding: 80px 0;
+	background: url(../img/faq-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	
+	.container {
+		h1 {
+			margin-bottom: 1rem;
+			text-align: center;
+		}
+
+		.question {
+			font-size: 1.2rem;
+			font-family: 'Myriad Bold', sans-serif;
+			margin-top: 2rem;
+			margin-bottom: 0.5rem;
+		}
+	}
+}
+
+#partners {
+	padding: 60px 0;
+	
+	.container {
+		
+		.partner-col {
+			@include span(3);
+			text-align: center;
+			@include breakpoint($tablet) {
+				@include span(12);
+			}
+			
+			img {
+				display: block;
+				margin: auto;
+				height: 80px;
+				width: auto;
+				max-width: auto;
+				margin-bottom: 2rem;
+				@include breakpoint($tablet) {
+					margin-top: 2rem;
+					margin-bottom: 1rem;
+				}
+			}
+		}
+	}
+}
+
+footer {
+	padding: 40px 0 0;
+	background: $gray;
+	color: darken($white, 20);
+	border-bottom: 10px solid $orange;
+	
+	.container {
+		.logo {
+			@include span(6 first);
+			img {
+				float: left;
+				margin-right: 1rem;
+				margin-bottom: 2rem;
+			}
+			p {
+				float: left;
+				font-size: 0.8rem;
+			}
+		}
+
+		.contacts {
+			@include span(6 last);
+			text-align: right;
+			
+			a {
+				color: #FFF;
+			}
+
+			i {
+				color: $orange;
+			}
+		}
+
+		.copyright {
+			clear: both;
+			border-top: 1px solid darken($white, 30);
+			padding-top: 1rem;
+			padding-bottom: 2.5rem;
+			margin-top: 2rem;
+			
+			p.copy-text {
+				float: left;
+			}
+
+			a {
+				float: right;
+				@include breakpoint($tablet) {
+					float: left;
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
+}
+
+@import "modals";
 

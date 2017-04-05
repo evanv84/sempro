@@ -40,7 +40,7 @@
                     <div class="container">
                          <div class="menu">
                             <ul class="nav-toggle">
-                                <li><a href="#shop-cat">Каталог</a></li>
+                                <li><a href="#shop-modal">Каталог</a></li>
                                 <li><a href="#">Калькулятор</a></li>
                                 <li><a href="#">Нас спрашивают</a></li>
                                 <li><a href="#">Нас рекомендуют</a></li>
@@ -256,9 +256,9 @@
             <div class="container">
                 <h1><span>СЭМПРО.</span> Нас спрашивают</h1>
                 <p class="question"><strong>Lorem ipsum dolor?</strong></p>
-                <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa perferendis nulla quos commodi corporis magni sequi dolorum minima quis quisquam.</p>
+                <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit recusandae aperiam nostrum ad maiores accusamus. Repudiandae officiis modi officia doloribus voluptatem ab consequuntur labore aspernatur, explicabo architecto suscipit, dolorum odio odit! Unde officia modi explicabo sed odit totam voluptatum necessitatibus.</p>
                 <p class="question"><strong>Lorem ipsum dolor?</strong></p>
-                <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa perferendis nulla quos commodi corporis magni sequi dolorum minima quis quisquam.</p>
+                <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias recusandae perferendis in aliquam odit eligendi ullam doloribus reprehenderit facere? Cupiditate obcaecati cumque, sed sunt. Ad eos cumque asperiores, ipsum sint obcaecati numquam quos enim corporis dolore nihil amet neque aliquid ex velit praesentium labore, laudantium eaque ipsam autem nisi explicabo.</p>
             </div>
         </section>
 
@@ -287,14 +287,12 @@
             <div class="container">
                 <div class="logo">
                     <img src="img/logo-footer.png" alt="">
-                    <p>OOO "Авангард"</p>
-                    <p>ИНН 7734719070</p>
-                    <p>КПП 773401001</p>
+                    <p>OOO "Авангард" <br>ИНН 7734719070 <br>КПП 773401001</p>
                 </div>
                 <div class="contacts">
-                    <p>8 (495) 933-22-20</p>
-                    <p>8 988 877-09-95</p>
-                    <p><a href="mailto:zakaz@ava-krep.ru"><i class="fa fa-envelope"></i> zakaz@ava-krep.ru</a></p>
+                    <p><i class="fa fa-phone"></i> 8 (495) 933-22-20</p>
+                    <p><i class="fa fa-mobile"></i> 8 988 877-09-95</p>
+                    <p><a href="mailto:zakaz@sempro.su"><i class="fa fa-envelope"></i> zakaz@sempro.su</a></p>
                 </div>
                 <div class="copyright">
                     <p class="copy-text">
@@ -304,6 +302,62 @@
                 </div>
             </div>
         </footer>
+
+        <!-- MODALS -->
+        <div class="remodal remodal-form" data-remodal-id="discount">
+            <button data-remodal-action="close" class="remodal-close">
+                <span></span>
+                <span></span>
+            </button>
+            <div class="text">
+                Заполните форму и мы свяжемся с вами для подробной консультации.
+            </div>
+            <form action="">
+                <input type="text" placeholder="Ваше имя">
+                <input type="text" placeholder="Ваш номер телефона">
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+            <div class="law">
+                <p>Ваши данные будут использованы только для связи с Вами и не будут переданы третьим лицам на основании ФЗ РФ №152 &quot;О персональных данных&quot;.</p>
+           </div>
+        </div>
+
+        <div class="remodal remodal-menu" data-remodal-id="menu-modal">
+            <button data-remodal-action="close" class="remodal-close">
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-modal">
+                <li><a href="#shop-modal">Каталог</a></li>
+                <li><a href="#">Калькулятор</a></li>
+                <li><a href="#">Нас спрашивают</a></li>
+                <li><a href="#">Нас рекомендуют</a></li>
+                <li><a href="#">Сертификаты и полномочия</a></li>
+                <li><a href="#">Доставка и оплата</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </div>
+
+        <div class="remodal remodal-contacts" data-remodal-id="contacts-modal">
+            <button data-remodal-action="close" class="remodal-close">
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="contacts">
+                <p>По всем интересующим вопросам Вы можете позвонить <br> или написать нам по контактам указаным ниже.</p>
+                <p><i class="fa fa-phone"></i> 8 (495) 933-22-20</p>
+                <p><i class="fa fa-mobile"></i> 8 988 877-09-95</p>
+                <p><a href="mailto:zakaz@sempro.su"><i class="fa fa-envelope"></i> zakaz@sempro.su</a></p>
+            </div>
+        </div>
+
+        <div class="remodal remodal-shop" data-remodal-id="shop-modal">
+            <button data-remodal-action="close" class="remodal-close">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
 
         <!-- Jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

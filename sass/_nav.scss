@@ -42,6 +42,9 @@ nav {
 		color: #FFF;
 		padding-top: 1rem;
 		font-family: 'Myriad Reg', sans-serif;
+		@include breakpoint($phone) {
+			display: none;
+		}
 		
 		.quote {
 			color: $orange;
@@ -56,6 +59,10 @@ nav {
 		padding-top: 1rem;
 		font-family: 'Myriad Reg', sans-serif;
 		font-size: 1.2rem;
+		@include breakpoint($phone) {
+			@include span(12 first);
+			text-align: left;
+		} 
 		
 		p {
 			margin-bottom: 0.5rem;
@@ -84,7 +91,7 @@ nav {
 				border-top: 1px solid $white;
 				font-family: 'Myriad Reg', sans-serif;
 				@include breakpoint($tablet) {
-					@include span(4 last)
+					border-top: none;
 				}
 				
 				ul {
@@ -114,7 +121,6 @@ nav {
 							
 							&:hover {
 								color: $orange;
-								font-weight: 300;
 							}
 							
 							&:after {
@@ -137,20 +143,40 @@ nav {
 								@include transition(0.5s);
 							}
 						}
+					}
 
-						.active {
-							font-weight: 500;
-							color: $orange !important;
-						}
+					.current_page_item {
+						a {
+							color: $orange;
+							text-decoration: none;
+							pointer-events: none;
+							@include breakpoint($tablet) {
+								color: #FFF;
+							}
+							
+							&:hover {
+								color: $orange;
+							}
+							
+							&:after {
+								display: block;
+								content: "";
+								height: 1px;
+								width: 100%;
+								background-color: $orange;
+								margin-top: -2.25rem;
+								margin-left: auto;
+								margin-right: auto;
+								@include transition(0.5s);
+								@include breakpoint($tablet) {
+									display: none;
+								}
+							}
 
-						.active:after {
-							display: block;
-							content: "";
-							height: 3px;
-							width: 100%;
-							background-color: $orange;
-							margin-top: 1.25rem;
-							@include transition(0.5s);
+							&:hover:after {
+								width: 100%;
+								@include transition(0.5s);
+							}
 						}
 					}
 				}
@@ -170,11 +196,12 @@ nav {
 		z-index: 49;
 		#nav-icon {
 		  width: 40px;
-		  height: 25px;
-		  position: relative;
-		  margin: 10px auto;
-		  top: 50px;
-		  right: 70px;
+		    height: 25px;
+		    position: fixed;
+		    margin: 10px auto;
+		    top: 0.5rem;
+		    right: 1rem;
+		    cursor: pointer;
 		  -webkit-transform: rotate(0deg);
 		  -moz-transform: rotate(0deg);
 		  -o-transform: rotate(0deg);
@@ -190,7 +217,7 @@ nav {
 		  position: absolute;
 		  height: 5px;
 		  width: 50%;
-		  background: $black;
+		  background: $orange;
 		  opacity: 1;
 		  -webkit-transform: rotate(0deg);
 		  -moz-transform: rotate(0deg);
@@ -388,4 +415,9 @@ nav {
 		
 	}
 
+}
+
+.woocommerce nav.woocommerce-pagination {
+    text-align: center;
+    background: transparent;
 }
